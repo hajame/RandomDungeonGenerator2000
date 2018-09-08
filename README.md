@@ -11,7 +11,7 @@ This is a project for a Data Structures and Algorithms course at Helsinki Univer
 
 ## Built With
 - Java
-- [Maven] - Dependency Management
+- [Maven](https://maven.apache.org) - Dependency Management
 
 ## Acknowledgements
 - [Bob Nystrom](http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/) for the original idea and tutorial.
