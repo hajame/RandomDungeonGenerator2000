@@ -1,4 +1,4 @@
-# Project: RandomDungeonGenerator2000 
+# Project: Random Dungeon Generator 2000 
 
 A random dungeon generator that creates random ASCII mazes with rooms. 
 
