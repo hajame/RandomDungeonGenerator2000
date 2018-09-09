@@ -1,13 +1,15 @@
 # Project Specifications
 
-The program creates an ASCII dungeon filled with rooms and mazes. It accepts user input for the size of the maze and number of rooms.
+The program creates an ASCII dungeon filled with rooms and mazes.  
+
+It accepts user input for the size of the maze and number attempts to make rooms (which normally results in having more rooms).
 
 ## Creating the dungeon
 
 The application uses four stages to create the randomized dungeon:
 
-1. Create rooms at random, but non-overlapping locations
-2. Fill the empty space with corridors created by a randomised [Flood fill](https://en.wikipedia.org/wiki/Flood_fill) algorithm
+1. Create rooms at random, but non-overlapping locations.
+2. Fill the empty space with corridors created by a randomised [Flood Fill](https://en.wikipedia.org/wiki/Flood_fill) algorithm
 3. Starting from a random room, add doors that connect every room and corridor segment to each other, allowing travel from any square to any other square
 4. Remove deadends
 
@@ -76,6 +78,7 @@ Find all squares that are next to three wall squares: O(n). Start with a random 
 
 - [Bob Nystrom's Dungeon Generator](http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/)
 - [Flood Fill](https://www.hackerearth.com/practice/algorithms/graphs/flood-fill-algorithm/tutorial/)
+    - also [Flood Fill on wikipedia](https://en.wikipedia.org/wiki/Flood_fill)
 - [Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
 
 
