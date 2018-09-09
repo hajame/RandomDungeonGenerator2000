@@ -1,10 +1,8 @@
 # Project: Random Dungeon Generator 2000 
 
-A random dungeon generator that creates random ASCII mazes with rooms. 
+A random dungeon generator that creates random ASCII mazes with rooms.  
 
-## Purpose
-
-This is a project for a Data Structures and Algorithms course at Helsinki University and it includes self-made data stuctures.
+This is a project for a Data Structures and Algorithms course at Helsinki University. Therefore it also includes self-made data stuctures.
 
 ## Acknowledgements
 - [Bob Nystrom](http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/) for the original idea and tutorial.
