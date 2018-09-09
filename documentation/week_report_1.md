@@ -1,6 +1,6 @@
 # Week 1
 
-- [Hour reporting](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/hour_reporting.md)
+- [Hour reporting](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/hour_report.md)
 
 ## Progress during week 1
 
