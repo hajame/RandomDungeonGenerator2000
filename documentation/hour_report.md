@@ -11,14 +11,15 @@
 | __total__  | __15__ |      |
 
 
+
 | Week 2     | hours | task |
 |------------|:-----:|-------------------------------------------------------------------------------|
 | 10-09-2018 |       |      |
 | 11-09-2018 | 3     | Design & create classes: Dungeon, Room, Position. Begun creating tests.  |
-| 12-09-2018 |       |      |
-| 13-09-2018 |       |      |
+| 12-09-2018 | 3     | Main parameters creation. Dungeon placeRooms() method.     |
+| 13-09-2018 | 4     | Fiddling with and updating parameters. Refactoring: Generator class. More tests: jacoco added  |
 | 14-09-2018 |       |      |
 | 15-09-2018 |       |      |
 | 16-09-2018 |       |      |
-| __total__ |      |      |
+| __total__ | 10     |      |
 
