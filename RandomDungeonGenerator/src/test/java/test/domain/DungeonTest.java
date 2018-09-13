@@ -3,11 +3,7 @@ package test.domain;
 import dungeongenerator.domain.Dungeon;
 import dungeongenerator.domain.Room;
 import dungeongenerator.util.Position;
-import java.util.Arrays;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
