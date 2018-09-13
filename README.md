@@ -11,5 +11,5 @@ This is a project for a Data Structures and Algorithms course at Helsinki Univer
 - [Specifications](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md)
 
 ## Built With
-- Java
+- Java version 8
 - [Maven](https://maven.apache.org) - Dependency Management
