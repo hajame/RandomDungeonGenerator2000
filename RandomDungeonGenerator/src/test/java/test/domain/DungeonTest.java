@@ -23,13 +23,13 @@ public class DungeonTest {
     public void setUp() {
         int dungeonHeight = 40;
         int dungeonWidth = 40;
-        char[][] map = new char[dungeonWidth][dungeonHeight];
+        char[][] map = new char[dungeonHeight][dungeonWidth];
 
         this.dungeon = new Dungeon(map);
         this.room1 = new Room(new Position(2, 2), new Position(7, 7));
         this.room2 = new Room(new Position(0, 0), new Position(7, 7));
         this.room3 = new Room(new Position(2, 2),
-                new Position(dungeonWidth, dungeonHeight));
+                new Position(dungeonHeight, dungeonWidth));
     }
 
     @Test

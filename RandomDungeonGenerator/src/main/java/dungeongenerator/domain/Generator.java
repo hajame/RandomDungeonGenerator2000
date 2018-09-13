@@ -45,14 +45,6 @@ public class Generator {
 
     }
 
-    public int getDungeonHeight() {
-        return dungeonHeight;
-    }
-
-    public int getDungeonWidth() {
-        return dungeonWidth;
-    }
-
     public Dungeon getDungeon() {
         return dungeon;
     }
