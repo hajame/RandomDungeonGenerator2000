@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- *
  * Class for handling map information and functions.
  *
  * @author hajame
@@ -49,8 +48,23 @@ public class Dungeon {
         this.rooms = rooms;
     }
 
+    /**
+     * Places a room if it doesn't collide with other rooms.
+     *
+     * @param room
+     */
     public void placeRoom(Room room) {
-        // todo
+        if (!canBePlaced(room)) {
+            return;
+        }
+        Position leftPos = room.getLeftPosition();
+        Position rightPos = room.getRightPosition();
+        for (int y = leftPos.y; y <= rightPos.y; y++) {
+            for (int x = leftPos.x; x <= rightPos.x; x++) {
+                map[x][y] = 'X';
+            }
+        }
+
     }
 
     /**
