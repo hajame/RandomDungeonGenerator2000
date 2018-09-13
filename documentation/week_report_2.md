@@ -7,10 +7,13 @@
 __Started coding!__  
 
 - Designed some of the classes
+- Generator class. Now creates randomly placed rooms.
 - Created:
 	- Dungeon
 	- Room
 	- Position
+	- Generator
+- Added parameters for Main class
 - Created tests for DungeonTest
 	- canBePlaced method testing
 
@@ -25,7 +28,10 @@ Couldn't decide if I need an ArrayList or not. Decided to create it now and deci
 
 ## Lessons learned
 
+Refactoring is not as bad as it used to be.
 
 ## Next week
 
-An algorithm that creates random rooms and (hopefully) fills the rest of the space with mazes.
+- Mark room walls better.
+- Generator fills the rest of the space with mazes
+- Create class RoomList that contains the ArrayList that is going to be replaced later.
