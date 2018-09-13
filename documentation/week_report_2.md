@@ -14,8 +14,11 @@ __Started coding!__
 	- Position
 	- Generator
 - Added parameters for Main class
-- Created tests for DungeonTest
-	- canBePlaced method testing
+- Created Tests
+	- DungeonTest
+		- canBePlaced method testing
+	- GeneratorTest
+	- Jacoco report
 
 ### Dungeon class
 
