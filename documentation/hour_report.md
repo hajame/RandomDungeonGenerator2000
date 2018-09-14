@@ -19,5 +19,5 @@
 | 12-09-2018 | 3     | Main parameters creation. Dungeon placeRooms() method.     |
 | 13-09-2018 | 4     | Fiddling with and updating parameters. Refactoring: Generator class. More tests: jacoco reporting added  |
 | 14-09-2018 | 1     | Readme, documentation     |
-| __total__ | 11     |      |
+| __total__ | __11__     |      |
 
