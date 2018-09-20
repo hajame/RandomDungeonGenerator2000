@@ -21,3 +21,12 @@
 | 14-09-2018 | 1     | Readme, documentation     |
 | __total__ | __11__     |      |
 
+
+| Week 3     | hours | task                                                                          |
+|------------|:-----:|-------------------------------------------------------------------------------|
+| 16-09-2018 |      |                                                     |
+| 17-09-2018 |      |                    |
+| 18-09-2018 | 1     | RoomList class (for now with ArrayList), RoomTest  |
+| 19-09-2018 | 2     | Adjusting parameters, RoomList methods, RoomGenerator, MazeGenerator          |
+| 20-09-2018 | 6     | Combine (RoomGenerator + MazeGenerator) -> Generator. generateMaze method, PositionList    |
+| __total__  | __9__ |      |
