@@ -24,6 +24,7 @@ public class Main {
                 roomMin, roomMax, roomPlacementAttempts);
         generator.generateRooms();
         Dungeon dungeon = generator.getDungeon();
+        generator.generateMaze();
 
         char[][] map = dungeon.getMap();
 

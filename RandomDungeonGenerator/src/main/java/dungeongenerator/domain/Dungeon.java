@@ -36,6 +36,64 @@ public class Dungeon {
         return map;
     }
 
+    public void fill(Position pos, char a) {
+        map[pos.x][pos.y] = a;
+    }
+    
+    /**
+     * Checks if the cell can be an opener for maze generation
+     * 
+     * @param pos
+     * @return true if is free and has 4 free neighbors.
+     */
+    public boolean canBeFirst(Position pos) {
+        int x = pos.x;
+        int y = pos.y;
+
+        if (map[x][y] == '█'
+                && map[x + 1][y] == '█'
+                && map[x - 1][y] == '█'
+                && map[x][y + 1] == '█'
+                && map[x][y - 1] == '█') {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks if the cell has 3 or more free neighbors.
+     * 
+     * @param pos
+     * @return true if free with 3 free neighbors.
+     */
+    
+    public boolean isFree(Position pos) {
+        int x = pos.x;
+        int y = pos.y;
+        if (map[x][y] == '█') {
+            int freeNeighbors = 0;
+            if (map[x + 1][y] == '█') {
+                freeNeighbors++;
+            }
+            if (map[x - 1][y] == '█') {
+                freeNeighbors++;
+            }
+            if(map[x][y + 1] == '█') {
+                freeNeighbors++;
+            }
+            if(map[x][y - 1] == '█') {
+                freeNeighbors++;                
+            }
+            // true if there are 3 or more free neighbors
+            if(freeNeighbors >= 3) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void setMap(char[][] map) {
         this.map = map;
     }
@@ -72,7 +130,7 @@ public class Dungeon {
      * @param room
      */
     public boolean canBePlaced(Room room) {
-        if(room == null) {
+        if (room == null) {
             return false;
         }
         Position leftPos = room.getLeftPosition();

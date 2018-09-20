@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Generator {
 
-    final Dungeon dungeon;
+    final Dungeon dung;
     final Random random;
     final int dungeonHeight;
     final int dungeonWidth;
@@ -27,9 +27,12 @@ public class Generator {
         this.roomAmount = roomAmount;
         this.random = new Random();
         char[][] map = new char[dungeonHeight][dungeonWidth];
-        this.dungeon = new Dungeon(map);
+        this.dung = new Dungeon(map);
     }
-
+    
+    /**
+     * Generates rooms randomly with the given amount of attempts.
+     */
     public void generateRooms() {
         for (int i = 0; i < roomAmount; i++) {
             Position leftPosition = new Position(
@@ -39,11 +42,52 @@ public class Generator {
                     random.nextInt(roomMax - roomMin) + leftPosition.x + roomMin,
                     random.nextInt(roomMax - roomMin) + leftPosition.y + roomMin);
             Room room = new Room(leftPosition, rightPosition);
-            dungeon.placeRoom(room);
+            dung.placeRoom(room);
         }
     }
 
+    /**
+     * Fills the dungeon's empty space with a maze.
+     */
+    public void generateMaze() {
+        Position pos = findNextFree();
+        
+        if (pos != null) {
+            dung.fill(pos, ' ');
+        }
+    }
+
+    /**
+     *
+     * Finds a beginning point for maze building.
+     *
+     * @return Position nextFree
+     */
+    public Position findNextFree() {
+        Position pos = new Position(2, 2);
+        for (int y = 2; y < dung.getMap()[0].length; y++) {
+            pos.y = y;
+            for (int x = 2; x < dung.getMap().length; x++) {
+                pos.x = x;
+                char a = dung.getMap()[x][y];
+                if (a == 'x' || a == 'X') {
+                } else {
+                    if (dung.canBeFirst(pos)) {
+                        return pos;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+    
+    public Position chooseRandomNeighbor(Position pos) {
+        // todo
+        
+        return null;
+    }
+
     public Dungeon getDungeon() {
-        return dungeon;
+        return dung;
     }
 }
