@@ -15,10 +15,10 @@ public class Main {
         int dungeonWidth = 110;
 
         // max and min values for room edges
-        int roomMin = 7;
-        int roomMax = 13;
+        int roomMin = 5;
+        int roomMax = 10;
         // no. of attempts to place rooms.
-        int roomPlacementAttempts = 100;
+        int roomPlacementAttempts = 50;
 
         Generator generator = new Generator(dungeonHeight, dungeonWidth,
                 roomMin, roomMax, roomPlacementAttempts);

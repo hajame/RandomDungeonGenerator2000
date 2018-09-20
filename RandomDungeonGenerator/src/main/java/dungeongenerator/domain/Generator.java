@@ -51,14 +51,14 @@ public class Generator {
      * Fills the dungeon's empty space with a maze.
      */
     public void generateMaze() {
-        Position start = findNextFree();
+        Position start = findNextFree();    // find start position
         if (start == null) {
             return;
         }
         dung.fill(start, ' ');
         PositionList waitingList = new PositionList();
         waitingList.add(start);
-
+        
         while (waitingList.size() > 0) {
             Position pos = waitingList.pollRandom();
             PositionList neighbors = dung.getNeighbors(pos);
@@ -68,7 +68,7 @@ public class Generator {
                 waitingList.add(neighbor);
             }
             if (neighbors.size() != 0) {
-                waitingList.add(pos);
+                waitingList.add(pos);   // back to list if still has room to expand
             }
         }
     }
