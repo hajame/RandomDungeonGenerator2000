@@ -10,12 +10,13 @@ import java.util.Random;
  */
 public class Generator {
 
+    final Dungeon dungeon;
+    final Random random;
     final int dungeonHeight;
     final int dungeonWidth;
     final int roomMin;
     final int roomMax;
     final int roomAmount;
-    private Dungeon dungeon;
 
     public Generator(int dungeonHeight, int dungeonWidth, int roomMin,
             int roomMax, int roomAmount) {
@@ -24,14 +25,12 @@ public class Generator {
         this.roomMin = roomMin;
         this.roomMax = roomMax;
         this.roomAmount = roomAmount;
+        this.random = new Random();
+        char[][] map = new char[dungeonHeight][dungeonWidth];
+        this.dungeon = new Dungeon(map);
     }
 
-    public void generate() {
-        char[][] map = new char[dungeonHeight][dungeonWidth];
-
-        this.dungeon = new Dungeon(map);
-        Random random = new Random();
-
+    public void generateRooms() {
         for (int i = 0; i < roomAmount; i++) {
             Position leftPosition = new Position(
                     random.nextInt(dungeonHeight - 2) + 1,
@@ -42,11 +41,9 @@ public class Generator {
             Room room = new Room(leftPosition, rightPosition);
             dungeon.placeRoom(room);
         }
-
     }
 
     public Dungeon getDungeon() {
         return dungeon;
     }
-
 }

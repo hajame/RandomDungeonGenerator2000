@@ -1,8 +1,7 @@
 package dungeongenerator.domain;
 
 import dungeongenerator.util.Position;
-import java.util.ArrayList;
-import java.util.Arrays;
+import dungeongenerator.util.RoomList;
 
 /**
  * Class for handling map information and functions.
@@ -12,14 +11,15 @@ import java.util.Arrays;
 public class Dungeon {
 
     private char[][] map;
-    private ArrayList<Room> rooms;
+    private RoomList rooms;
 
     public Dungeon(char[][] map) {
         this.map = map;
-        init();
+        this.rooms = new RoomList();
+        initMap();
     }
 
-    public void init() {
+    public void initMap() {
         for (int y = 0; y < map[0].length; y++) {
             for (int x = 0; x < map.length; x++) {
 
@@ -40,11 +40,11 @@ public class Dungeon {
         this.map = map;
     }
 
-    public ArrayList<Room> getRooms() {
+    public RoomList getRooms() {
         return rooms;
     }
 
-    public void setRooms(ArrayList<Room> rooms) {
+    public void setRooms(RoomList rooms) {
         this.rooms = rooms;
     }
 
@@ -64,7 +64,6 @@ public class Dungeon {
                 map[x][y] = 'X';
             }
         }
-
     }
 
     /**
@@ -73,6 +72,9 @@ public class Dungeon {
      * @param room
      */
     public boolean canBePlaced(Room room) {
+        if(room == null) {
+            return false;
+        }
         Position leftPos = room.getLeftPosition();
         Position rightPos = room.getRightPosition();
         for (int y = leftPos.y; y <= rightPos.y; y++) {
@@ -82,6 +84,7 @@ public class Dungeon {
                 }
             }
         }
+        rooms.add(room);
         return true;
     }
 

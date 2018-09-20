@@ -16,13 +16,13 @@ public class Main {
 
         // max and min values for room edges
         int roomMin = 7;
-        int roomMax = 10;
+        int roomMax = 13;
         // no. of attempts to place rooms.
-        int roomPlacementAttempts = 1000;
+        int roomPlacementAttempts = 100;
 
         Generator generator = new Generator(dungeonHeight, dungeonWidth,
                 roomMin, roomMax, roomPlacementAttempts);
-        generator.generate();
+        generator.generateRooms();
         Dungeon dungeon = generator.getDungeon();
 
         char[][] map = dungeon.getMap();
@@ -30,6 +30,7 @@ public class Main {
         for (char[] array : map) {
             System.out.println(Arrays.toString(array));
         }
+        dungeon.getRooms().print();
     }
 
 }
