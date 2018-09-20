@@ -1,6 +1,7 @@
 package dungeongenerator.domain;
 
 import dungeongenerator.util.Position;
+import dungeongenerator.util.PositionList;
 import java.util.Random;
 
 /**
@@ -29,7 +30,7 @@ public class Generator {
         char[][] map = new char[dungeonHeight][dungeonWidth];
         this.dung = new Dungeon(map);
     }
-    
+
     /**
      * Generates rooms randomly with the given amount of attempts.
      */
@@ -50,15 +51,29 @@ public class Generator {
      * Fills the dungeon's empty space with a maze.
      */
     public void generateMaze() {
-        Position pos = findNextFree();
-        
-        if (pos != null) {
-            dung.fill(pos, ' ');
+        Position start = findNextFree();
+        if (start == null) {
+            return;
+        }
+        dung.fill(start, ' ');
+        PositionList waitingList = new PositionList();
+        waitingList.add(start);
+
+        while (waitingList.size() > 0) {
+            Position pos = waitingList.pollRandom();
+            PositionList neighbors = dung.getNeighbors(pos);
+            Position neighbor = neighbors.pollRandom();
+            if (neighbor != null) {
+                dung.fill(neighbor, ' ');
+                waitingList.add(neighbor);
+            }
+            if (neighbors.size() != 0) {
+                waitingList.add(pos);
+            }
         }
     }
 
     /**
-     *
      * Finds a beginning point for maze building.
      *
      * @return Position nextFree
@@ -80,14 +95,9 @@ public class Generator {
         }
         return null;
     }
-    
-    public Position chooseRandomNeighbor(Position pos) {
-        // todo
-        
-        return null;
-    }
 
     public Dungeon getDungeon() {
         return dung;
     }
+
 }

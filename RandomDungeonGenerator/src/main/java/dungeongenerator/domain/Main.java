@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         int dungeonHeight = 50;
-        int dungeonWidth = 80;
+        int dungeonWidth = 110;
 
         // max and min values for room edges
         int roomMin = 7;
@@ -31,6 +31,7 @@ public class Main {
         for (char[] array : map) {
             System.out.println(Arrays.toString(array));
         }
+        dungeon.print();
         dungeon.getRooms().print();
     }
 

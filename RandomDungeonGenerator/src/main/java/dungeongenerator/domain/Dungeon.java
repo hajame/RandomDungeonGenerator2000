@@ -1,6 +1,7 @@
 package dungeongenerator.domain;
 
 import dungeongenerator.util.Position;
+import dungeongenerator.util.PositionList;
 import dungeongenerator.util.RoomList;
 
 /**
@@ -39,10 +40,10 @@ public class Dungeon {
     public void fill(Position pos, char a) {
         map[pos.x][pos.y] = a;
     }
-    
+
     /**
      * Checks if the cell can be an opener for maze generation
-     * 
+     *
      * @param pos
      * @return true if is free and has 4 free neighbors.
      */
@@ -55,20 +56,17 @@ public class Dungeon {
                 && map[x - 1][y] == '█'
                 && map[x][y + 1] == '█'
                 && map[x][y - 1] == '█') {
-
             return true;
         }
-
         return false;
     }
 
     /**
      * Checks if the cell has 3 or more free neighbors.
-     * 
+     *
      * @param pos
      * @return true if free with 3 free neighbors.
      */
-    
     public boolean isFree(Position pos) {
         int x = pos.x;
         int y = pos.y;
@@ -80,18 +78,42 @@ public class Dungeon {
             if (map[x - 1][y] == '█') {
                 freeNeighbors++;
             }
-            if(map[x][y + 1] == '█') {
+            if (map[x][y + 1] == '█') {
                 freeNeighbors++;
             }
-            if(map[x][y - 1] == '█') {
-                freeNeighbors++;                
+            if (map[x][y - 1] == '█') {
+                freeNeighbors++;
             }
             // true if there are 3 or more free neighbors
-            if(freeNeighbors >= 3) {
+            if (freeNeighbors >= 3) {
                 return true;
             }
         }
         return false;
+    }
+
+    public PositionList getNeighbors(Position pos) {
+        PositionList neighbors = new PositionList();
+        int x = pos.x;
+        int y = pos.y;
+
+        Position right = new Position(x + 1, y);
+        if (isFree(right)) {
+            neighbors.add(right);
+        }
+        Position left = new Position(x - 1, y);
+        if (isFree(left)) {
+            neighbors.add(left);
+        }
+        Position top = new Position(x, y + 1);
+        if (isFree(top)) {
+            neighbors.add(top);
+        }
+        Position down = new Position(x, y - 1);
+        if (isFree(down)) {
+            neighbors.add(down);
+        }
+        return neighbors;
     }
 
     public void setMap(char[][] map) {
@@ -144,6 +166,14 @@ public class Dungeon {
         }
         rooms.add(room);
         return true;
+    }
+
+    public void print() {
+
+        for (char[] array : map) {
+            System.out.println(String.valueOf(array));
+        }
+
     }
 
 }
