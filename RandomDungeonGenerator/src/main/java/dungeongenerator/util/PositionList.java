@@ -32,8 +32,10 @@ public class PositionList {
     }
 
     public void remove(int index) {
-        list.remove(index);
-        size -= 1;
+        if (size > 0) {
+            list.remove(index);
+            size -= 1;
+        }
     }
 
     public Position get(int i) {
