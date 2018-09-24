@@ -25,22 +25,29 @@ public class RoomList {
     }
 
     public void remove(int index) {
-        list.remove(index);
-        size -= 1;
+        if (size != 0 && index < size) {
+            list.remove(index);
+            size -= 1;
+        }
+    }
+
+    public Room get(int index) {
+        if (size != 0 && index < size) {
+            return list.get(index);
+        }
+        return null;
     }
 
     public int size() {
         return size;
     }
 
-    public void print(){
-        System.out.println("RoomList, size: "+size);
-        for(Room room : list) {
+    public void print() {
+        System.out.println("RoomList, size: " + size);
+        for (Room room : list) {
             Position left = room.getLeftPosition();
             Position right = room.getRightPosition();
-            System.out.println("Lx"+left.x+"\tLy "+left.x+"\tRx "+right.x+"\tRy "+right.y);
+            System.out.println("Lx " + left.x + "\tLy " + left.x + "\tRx " + right.x + "\tRy " + right.y);
         }
     }
-    
-    
 }
