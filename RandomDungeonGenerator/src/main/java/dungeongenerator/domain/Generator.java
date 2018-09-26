@@ -102,7 +102,10 @@ public class Generator {
         }
         for(int i = 0; i < dung.getRooms().size(); i++) {
             PositionList doorSegments = dung.getRooms().get(i).connectingSegments(dung);
-            dung.fill(doorSegments.pollRandom(), ' ');
+            Position door = doorSegments.pollRandom();
+            if(door != null) {
+                dung.fill(door, ' ');
+            }
         }
     }
 
