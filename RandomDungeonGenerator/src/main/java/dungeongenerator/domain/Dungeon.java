@@ -50,7 +50,6 @@ public class Dungeon {
     public boolean canBeFirst(Position pos) {
         int x = pos.x;
         int y = pos.y;
-
         if (map[x][y] == '█'
                 && map[x + 1][y] == '█'
                 && map[x - 1][y] == '█'
@@ -169,11 +168,8 @@ public class Dungeon {
     }
 
     public void print() {
-
         for (char[] array : map) {
             System.out.println(String.valueOf(array));
         }
-
     }
-
 }

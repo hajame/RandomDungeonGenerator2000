@@ -58,7 +58,7 @@ public class Generator {
         dung.fill(start, ' ');
         PositionList waitingList = new PositionList();
         waitingList.add(start);
-        
+
         while (waitingList.size() > 0) {
             Position pos = waitingList.pollRandom();
             PositionList neighbors = dung.getNeighbors(pos);
@@ -95,9 +95,18 @@ public class Generator {
         }
         return null;
     }
+    
+    public void generateDoors() {
+        if(dung.getRooms().size() == 0) {
+            return;
+        }
+        for(int i = 0; i < dung.getRooms().size(); i++) {
+            PositionList doorSegments = dung.getRooms().get(i).connectingSegments(dung);
+            dung.fill(doorSegments.pollRandom(), ' ');
+        }
+    }
 
     public Dungeon getDungeon() {
         return dung;
     }
-
 }
