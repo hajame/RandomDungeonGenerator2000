@@ -1,7 +1,5 @@
 package dungeongenerator.domain;
 
-import java.util.Arrays;
-
 /**
  * Main class
  *
@@ -22,16 +20,12 @@ public class Main {
 
         Generator generator = new Generator(dungeonHeight, dungeonWidth,
                 roomMin, roomMax, roomPlacementAttempts);
-        generator.generateRooms();
+        
+        generator.generateDungeon();
+        
         Dungeon dungeon = generator.getDungeon();
-        generator.generateMaze();
-        generator.generateDoors();
-
         char[][] map = dungeon.getMap();
-
-        for (char[] array : map) {
-            System.out.println(Arrays.toString(array));
-        }
+        
         dungeon.print();
         dungeon.getRooms().print();
     }

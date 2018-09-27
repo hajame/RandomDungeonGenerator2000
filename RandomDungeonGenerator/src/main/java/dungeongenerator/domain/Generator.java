@@ -18,6 +18,7 @@ public class Generator {
     final int roomMin;
     final int roomMax;
     final int roomAmount;
+    private PositionList deadEnds;
 
     public Generator(int dungeonHeight, int dungeonWidth, int roomMin,
             int roomMax, int roomAmount) {
@@ -26,11 +27,18 @@ public class Generator {
         this.roomMin = roomMin;
         this.roomMax = roomMax;
         this.roomAmount = roomAmount;
+        this.deadEnds = new PositionList();
         this.random = new Random();
         char[][] map = new char[dungeonHeight][dungeonWidth];
         this.dung = new Dungeon(map);
     }
 
+    public void generateDungeon() {
+        generateRooms();
+        generateMaze();
+        generateDoors();
+    }
+    
     /**
      * Generates rooms randomly with the given amount of attempts.
      */
@@ -71,6 +79,10 @@ public class Generator {
                 waitingList.add(pos);   // back to list if still has room to expand
             }
         }
+        start = findNextFree(); // checks if there is a spot to build more maze
+        if (start != null) {
+            generateMaze();
+        }
     }
 
     /**
@@ -95,18 +107,22 @@ public class Generator {
         }
         return null;
     }
-    
+
     public void generateDoors() {
-        if(dung.getRooms().size() == 0) {
+        if (dung.getRooms().size() == 0) {
             return;
         }
-        for(int i = 0; i < dung.getRooms().size(); i++) {
+        for (int i = 0; i < dung.getRooms().size(); i++) {
             PositionList doorSegments = dung.getRooms().get(i).connectingSegments(dung);
             Position door = doorSegments.pollRandom();
-            if(door != null) {
+            if (door != null) {
                 dung.fill(door, ' ');
             }
         }
+    }
+    
+    public void deleteDeadEnds() {
+        // todo
     }
 
     public Dungeon getDungeon() {
