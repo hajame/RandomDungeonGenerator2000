@@ -11,7 +11,7 @@ This is a project for a Data Structures and Algorithms course at Helsinki Univer
 - [Specifications](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md)
 - [Hour report](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/hour_report.md)
 - [Week 2 report](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_2.md)
-- [Test report - jacoco](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/test_report.md)
+- [Test report](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/test_report.md)
 
 ## Built With
 - Java version 8
