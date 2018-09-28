@@ -49,6 +49,14 @@ public class PositionList {
         return size;
     }
 
+    public Position poll() {
+        Position pos = get(0);
+        if (pos != null) {
+            remove(0);
+        }
+        return pos;
+    }
+    
     public Position poll(int i) {
         Position pos = get(i);
         if (pos != null) {

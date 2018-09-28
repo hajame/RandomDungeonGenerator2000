@@ -35,7 +35,10 @@ public class Generator {
 
     public void generateDungeon() {
         generateRooms();
-        generateMaze();
+        boolean mazeGenerated = generateMaze();
+        while (!mazeGenerated) {
+            mazeGenerated = generateMaze();
+        }
         generateDoors();
     }
     
@@ -56,19 +59,19 @@ public class Generator {
     }
 
     /**
-     * Fills the dungeon's empty space with a maze.
+     * Randomly fills the dungeon's empty space with a maze.
      */
-    public void generateMaze() {
+    public boolean generateMaze() {
         Position start = findNextFree();    // find start position
         if (start == null) {
-            return;
+            return true;
         }
         dung.fill(start, ' ');
         PositionList waitingList = new PositionList();
         waitingList.add(start);
 
         while (waitingList.size() > 0) {
-            Position pos = waitingList.pollRandom();
+            Position pos = waitingList.poll();
             PositionList neighbors = dung.getNeighbors(pos);
             Position neighbor = neighbors.pollRandom();
             if (neighbor != null) {
@@ -81,8 +84,9 @@ public class Generator {
         }
         start = findNextFree(); // checks if there is a spot to build more maze
         if (start != null) {
-            generateMaze();
+            return false;
         }
+        return true;
     }
 
     /**
