@@ -1,8 +1,8 @@
 # Project realization
 
-The structure of the program follows the steps of the [Project Specifications](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md).
+The structure of the program follows the steps of the [Project Specifications](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md):
 
-## Creating the dungeon
+#### Creating the dungeon
 
 The application uses four stages to create the randomized dungeon:
 
