@@ -56,9 +56,17 @@ Note: even a 500x500 maze is quite big for an ASCII dungeon. It will not confort
 - 1kx1k - 100k attempts - 13,942 - SURVIVED ALL 3 TESTS
     - NOTE: usually ~100 rooms in the map despite large no. of attempts
 
+#### After removing recursion
+- 1kx1k 
+    - 50 attempts 32.119s
+    - 500 attempts 19.920s
+    - 1000 attempts 17.185s
+    - 10k attempts 12.486s
+    - 100k attempts 11.587s
+
 Build time did not increase significantly from 700x700 to 1kx1k, even if there are twice as many squares in the latter. However, this is probably due to the increased amount of attempts, 500 vs 100k.
 
-What's noteworthy is that although the generateMaze algorithm seems to have stack over flow issues, these issues seem to disappear when room placement amount is increased. It will generate large mazes only if the rooms populate a large enough area.
+What is noteworthy is that although the generateMaze algorithm had stack over flow issues, these issues seem to disappear when room placement amount is increased. It would generate large mazes only if the rooms populate a large enough area. This problem was fixed by removing recursion.
 
 This suggests that when the number of rooms is sparse, the generateMaze random flood fill algorithm trips over somehow, stops and has to perform a recursion, beginning from a new opening multiple times, until StackOverFlow error occurs.
 
