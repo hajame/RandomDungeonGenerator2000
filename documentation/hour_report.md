@@ -30,3 +30,12 @@
 | 19-09-2018 | 2     | Adjusting parameters, RoomList methods, RoomGenerator, MazeGenerator          |
 | 20-09-2018 | 6     | Combine (RoomGenerator + MazeGenerator) -> Generator. generateMaze method, PositionList    |
 | __total__  | __9__ |      |
+
+
+| Week 4     | hours | task                                                                          |
+|------------|:-----:|-------------------------------------------------------------------------------|
+| 24-09-2018 | 2     | JUnit testing.                                                        |
+| 26-09-2018 | 2     | Generating doors                   |
+| 27-09-2018 | 3     | Documentation, Filling missed spaces with maze. Refactoring. Empirical testing. |
+| 28-09-2018 | 2     | Optimizing algorithms, bug fixes, empirical testing, documentation         |
+| __total__  | __9__ |      |
