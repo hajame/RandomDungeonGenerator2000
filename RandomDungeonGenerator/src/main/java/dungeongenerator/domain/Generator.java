@@ -133,6 +133,9 @@ public class Generator {
     public void deleteDeadEnds() {
         while (deadEnds.size() > 0) {
             Position pos = deadEnds.poll();
+            if (!dung.isDeadEnd(pos)) {
+                continue;
+            }
             dung.fill(pos, '█');
             pos = dung.findOpenNeighbor(pos);
             if (pos != null) {
