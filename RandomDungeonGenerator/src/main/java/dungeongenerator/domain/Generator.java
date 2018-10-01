@@ -40,8 +40,9 @@ public class Generator {
             mazeGenerated = generateMaze();
         }
         generateDoors();
+        deleteDeadEnds();
     }
-    
+
     /**
      * Generates rooms randomly with the given amount of attempts.
      */
@@ -72,7 +73,7 @@ public class Generator {
 
         while (waitingList.size() > 0) {
             Position pos = waitingList.poll();
-            PositionList neighbors = dung.getNeighbors(pos);
+            PositionList neighbors = dung.getFreeNeighbors(pos);
             Position neighbor = neighbors.pollRandom();
             if (neighbor != null) {
                 dung.fill(neighbor, ' ');
@@ -80,6 +81,10 @@ public class Generator {
             }
             if (neighbors.size() != 0) {
                 waitingList.add(pos);   // back to list if still has room to expand
+            } else {
+                if (dung.isDeadEnd(pos)) {
+                    deadEnds.add(pos);
+                }
             }
         }
         start = findNextFree(); // checks if there is a spot to build more maze
@@ -120,13 +125,22 @@ public class Generator {
             PositionList doorSegments = dung.getRooms().get(i).connectingSegments(dung);
             Position door = doorSegments.pollRandom();
             if (door != null) {
-                dung.fill(door, ' ');
+                dung.fill(door, '+');
             }
         }
     }
-    
+
     public void deleteDeadEnds() {
-        // todo
+        while (deadEnds.size() > 0) {
+            Position pos = deadEnds.poll();
+            dung.fill(pos, '█');
+            pos = dung.findOpenNeighbor(pos);
+            if (pos != null) {
+                if (dung.isDeadEnd(pos)) {
+                    deadEnds.add(pos);
+                }
+            }
+        }
     }
 
     public Dungeon getDungeon() {

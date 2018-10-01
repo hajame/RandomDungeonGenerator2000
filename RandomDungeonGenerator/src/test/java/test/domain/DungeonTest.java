@@ -57,12 +57,12 @@ public class DungeonTest {
     }
 
     @Test
-    public void getNeighborsTest() {
+    public void getFreeNeighborsTest() {
         dungeon.placeRoom(room1);
         Position newPos = new Position(8, 5);
         dungeon.fill(newPos, ' ');
         dungeon.fill(new Position(9, 4), ' ');        
-        PositionList neigbors = dungeon.getNeighbors(newPos);
+        PositionList neigbors = dungeon.getFreeNeighbors(newPos);
         assertEquals(new Position(7, 5), neigbors.get(0));
     }
 

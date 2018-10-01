@@ -91,7 +91,34 @@ public class Dungeon {
         return false;
     }
 
-    public PositionList getNeighbors(Position pos) {
+    public boolean isDeadEnd(Position pos) {
+        if (map[pos.x][pos.y] == ' ') {
+            int surroundingWalls = 0;
+            char c = map[pos.x + 1][pos.y];
+            if (c == '+') return false;
+            if (c == '█') surroundingWalls++;
+            
+            c = map[pos.x - 1][pos.y];
+            if (c == '+') return false;
+            if (c == '█') surroundingWalls++;
+            
+            c = map[pos.x][pos.y + 1];
+            if (c == '+') return false;
+            if (c == '█') surroundingWalls++;
+            
+            c = map[pos.x][pos.y - 1];
+            if (c == '+') return false;
+            if (c == '█') surroundingWalls++;
+            
+            // true if there are 3 or surrounding walls
+            if (surroundingWalls >= 3) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public PositionList getFreeNeighbors(Position pos) {
         PositionList neighbors = new PositionList();
         int x = pos.x;
         int y = pos.y;
@@ -113,6 +140,22 @@ public class Dungeon {
             neighbors.add(down);
         }
         return neighbors;
+    }
+
+    public Position findOpenNeighbor(Position pos) {
+        if (map[pos.x + 1][pos.y] == ' ') {
+            return new Position(pos.x + 1, pos.y);
+        }
+        if (map[pos.x - 1][pos.y] == ' ') {
+            return new Position(pos.x - 1, pos.y);
+        }
+        if (map[pos.x][pos.y + 1] == ' ') {
+            return new Position(pos.x, pos.y + 1);
+        }
+        if (map[pos.x][pos.y - 1] == ' ') {
+            return new Position(pos.x, pos.y - 1);
+        }
+        return null;
     }
 
     public void setMap(char[][] map) {
