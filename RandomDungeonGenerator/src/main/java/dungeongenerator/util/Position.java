@@ -10,12 +10,22 @@ package dungeongenerator.util;
 public class Position {
     public int x;
     public int y;
+    private Position next;
 
     public Position(int x, int y) {
         this.x = x;
         this.y = y;
+        this.next = null;
     }
 
+    public Position getNext() {
+        return next;
+    }
+
+    public void setNext(Position next) {
+        this.next = next;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
