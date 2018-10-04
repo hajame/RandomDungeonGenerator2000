@@ -26,23 +26,18 @@ public class PositionList {
         size += 1;
     }
 
-    public void remove(int index) {
-        if (size > index && index == 0) {
-            first = first.getNext();
-            size--;
-        } else if (size > index && index > 0) {
-            Position previous = null;
-            Position current = first;
-            for (int i = 1; i < index + 1; i++) {
-                previous = current;
-                current = current.getNext();
+    public Position first() {
+        return first;
+    }
+    
+    public void setFirst(Position pos) {
+        if(first != null) {
+            if (pos == null) {
+                first = null;
+                return;
             }
-            if (previous != null) {
-                previous.setNext(current.getNext());
-            } else {
-                first = current.getNext();
-            }
-            size--;
+            pos.setNext(first);
+            first = pos;    
         }
     }
 
@@ -61,6 +56,10 @@ public class PositionList {
         return size;
     }
 
+    public void decSize() {
+        this.size--;
+    }
+    
     public Position poll() {
         Position pos = null;
         if (size > 0) {
@@ -69,25 +68,5 @@ public class PositionList {
             size--;
         }
         return pos;
-    }
-
-    public Position poll(int index) {
-        if (size > index && index > -1) {
-            Position previous = null;
-            Position current = first;
-            for (int i = 1; i < index; i++) {
-                previous = current;
-                current = current.getNext();
-            }
-            if (previous != null) {
-                previous.setNext(current.getNext());
-            } else {
-                first = current.getNext();
-            }
-            size -= 1;
-            return current;
-        } else {
-            return null;
-        }
     }
 }

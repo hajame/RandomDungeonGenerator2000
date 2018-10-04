@@ -65,8 +65,8 @@ public class Generator {
      * Randomly fills the dungeon's empty space with a maze.
      */
     public boolean generateMaze() {
-        Position start = findNextFree(random.nextInt(    
-                dungeonWidth / 2 + 2), dungeonHeight / 2 + 2 ); 
+        Position start = findNextFree(random.nextInt(
+                dungeonWidth / 2 + 2), dungeonHeight / 2 + 2);
         if (start == null) {            // if couldn't find random start position
             start = findNextFree(2, 2); // check if one exists
             if (start == null) {
@@ -83,8 +83,10 @@ public class Generator {
             Position neighbor = null;
             for (int i = 0; i < neighbors.size(); i++) {
                 if (neighbors.get(i).getDirectionFrom(pos) == dir) {
-                    if (random.nextInt(6) > 3) { // increase chance to continue straight
+                    if (random.nextInt(4) > 1) { // increase chance to continue straight
                         neighbor = neighbors.poll(i);
+                        break;
+                    } else {
                         break;
                     }
                 }
