@@ -1,5 +1,7 @@
 package dungeongenerator.domain;
 
+import dungeongenerator.util.Direction;
+import dungeongenerator.util.NeighborList;
 import dungeongenerator.util.Position;
 import dungeongenerator.util.PositionList;
 import java.util.Random;
@@ -18,7 +20,7 @@ public class Generator {
     final int roomMin;
     final int roomMax;
     final int roomAmount;
-    private PositionList deadEnds;
+    final PositionList deadEnds;
 
     public Generator(int dungeonHeight, int dungeonWidth, int roomMin,
             int roomMax, int roomAmount) {
@@ -63,19 +65,35 @@ public class Generator {
      * Randomly fills the dungeon's empty space with a maze.
      */
     public boolean generateMaze() {
-        Position start = findNextFree();    // find start position
-        if (start == null) {
-            return true;
+        Position start = findNextFree(random.nextInt(    
+                dungeonWidth / 2 + 2), dungeonHeight / 2 + 2 ); 
+        if (start == null) {            // if couldn't find random start position
+            start = findNextFree(2, 2); // check if one exists
+            if (start == null) {
+                return true;            // maze complete
+            }
         }
         dung.fill(start, ' ');
         PositionList waitingList = new PositionList();
         waitingList.add(start);
-
+        Direction dir = Direction.DOWN;
         while (waitingList.size() > 0) {
             Position pos = waitingList.poll();
-            PositionList neighbors = dung.getFreeNeighbors(pos);
-            Position neighbor = neighbors.pollRandom();
+            NeighborList neighbors = dung.getFreeNeighbors(pos);
+            Position neighbor = null;
+            for (int i = 0; i < neighbors.size(); i++) {
+                if (neighbors.get(i).getDirectionFrom(pos) == dir) {
+                    if (random.nextInt(6) > 3) { // increase chance to continue straight
+                        neighbor = neighbors.poll(i);
+                        break;
+                    }
+                }
+            }
+            if (neighbor == null) {
+                neighbor = neighbors.pollRandom();
+            }
             if (neighbor != null) {
+                dir = neighbor.getDirectionFrom(pos); // update new direction
                 dung.fill(neighbor, ' ');
                 waitingList.add(neighbor);
             }
@@ -84,14 +102,15 @@ public class Generator {
             } else {
                 if (dung.isDeadEnd(pos)) {
                     deadEnds.add(pos);
+                    dir = Direction.DOWN;
                 }
             }
         }
-        start = findNextFree(); // checks if there is a spot to build more maze
+        start = findNextFree(2, 2); // checks if there is a spot to build more maze
         if (start != null) {
-            return false;
+            return false;           // maze not complete
         }
-        return true;
+        return true;                // maze complete
     }
 
     /**
@@ -99,8 +118,8 @@ public class Generator {
      *
      * @return Position nextFree
      */
-    public Position findNextFree() {
-        Position pos = new Position(2, 2);
+    public Position findNextFree(int xPos, int yPos) {
+        Position pos = new Position(xPos, yPos);
         for (int y = 2; y < dung.getMap()[0].length; y++) {
             pos.y = y;
             for (int x = 2; x < dung.getMap().length; x++) {
@@ -123,7 +142,7 @@ public class Generator {
         }
         for (int i = 0; i < dung.getRooms().size(); i++) {
             PositionList doorSegments = dung.getRooms().get(i).connectingSegments(dung);
-            Position door = doorSegments.pollRandom();
+            Position door = doorSegments.get(random.nextInt(doorSegments.size()));
             if (door != null) {
                 dung.fill(door, '+');
             }

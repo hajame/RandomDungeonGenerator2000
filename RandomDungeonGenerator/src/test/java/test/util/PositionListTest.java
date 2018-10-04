@@ -1,5 +1,6 @@
 package test.util;
 
+import dungeongenerator.util.NeighborList;
 import dungeongenerator.util.Position;
 import dungeongenerator.util.PositionList;
 import org.junit.Before;
@@ -14,12 +15,15 @@ public class PositionListTest {
     
     private Position position;
     private PositionList list;
+    private NeighborList neigbors;
 
     @Before
     public void setUp() {
         this.position = new Position(1, 2);
         this.list = new PositionList();
+        this.neigbors = new NeighborList();
         list.add(position);
+        neigbors.add(position);
     }
 
     @Test
@@ -54,35 +58,35 @@ public class PositionListTest {
     @Test
     public void pollRandomTest() {
         // 1 in list
-        Position pos = list.pollRandom();
+        Position pos = neigbors.pollRandom();
         assertEquals(position, pos);
-        assertEquals(0, list.size());
+        assertEquals(0, neigbors.size());
         
         // empty list
-        pos = list.pollRandom();
+        pos = neigbors.pollRandom();
         assertNull(pos);
-        assertEquals(0, list.size());
+        assertEquals(0, neigbors.size());
         
 
         // 3 in list
         Position one = new Position(1, 1);
         Position two = new Position(2, 2);
         Position three = new Position(3, 3);
-        list.add(one);
-        list.add(two);
-        list.add(three);
-        pos = list.pollRandom();
+        neigbors.add(one);
+        neigbors.add(two);
+        neigbors.add(three);
+        pos = neigbors.pollRandom();
         if(pos == one) {
             assertEquals(pos, one);
-            assertEquals(2, list.size());
+            assertEquals(2, neigbors.size());
         }
         if(pos == two) {
             assertEquals(pos, two);
-            assertEquals(2, list.size());
+            assertEquals(2, neigbors.size());
         }
         if(pos == three) {
             assertEquals(pos, three);
-            assertEquals(2, list.size());
+            assertEquals(2, neigbors.size());
         }
     }
     

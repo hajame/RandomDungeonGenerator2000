@@ -1,48 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dungeongenerator.util;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.LinkedList;
 
 /**
- * ArrayList-type data structure containing Position objects. Will be replaced
+ * LinkedList-type data structure containing Position objects. Will be replaced
  * with a custom model.
  *
  * @author hajame
  */
 public class PositionList {
 
-    private ArrayList<Position> list;
+    private LinkedList<Position> list;
+    private Position first;
     private int size;
-    final Random random;
 
     public PositionList() {
-        this.list = new ArrayList<>();
+        this.list = new LinkedList<>();
+        this.first = null;
         this.size = 0;
-        this.random = new Random();
     }
 
     public void add(Position position) {
-        list.add(position);
+        position.setNext(first);
+        first = position;
         size += 1;
     }
 
     public void remove(int index) {
-        if (size > 0) {
-            list.remove(index);
+        if (size > index && index > -1) {
+            Position previous = null;
+            Position current = first;
+            for (int i = 1; i < index + 1; i++) {
+                previous = current;
+                current = current.getNext();
+            }
+            if (previous != null) {
+                previous.setNext(current.getNext());
+            } else {
+                first = current.getNext();
+            }
             size -= 1;
         }
     }
 
-    public Position get(int i) {
-        if (size == 0) {
+    public Position get(int index) {
+        if (size == 0 || size <= index || index < 0) {
             return null;
         }
-        return list.get(i);
+        Position pos = first;
+        for (int i = 1; i < index + 1; i++) {
+            pos = pos.getNext();
+        }
+        return pos;
     }
 
     public int size() {
@@ -56,26 +65,24 @@ public class PositionList {
         }
         return pos;
     }
-    
-    public Position poll(int i) {
-        Position pos = get(i);
-        if (pos != null) {
-            remove(i);
-        }
-        return pos;
-    }
 
-    public Position pollRandom() {
-        if (size == 0) {
+    public Position poll(int index) {
+        if (size > index && index > -1) {
+            Position previous = null;
+            Position current = first;
+            for (int i = 1; i < index; i++) {
+                previous = current;
+                current = current.getNext();
+            }
+            if (previous != null) {
+                previous.setNext(current.getNext());
+            } else {
+                first = current.getNext();
+            }
+            size -= 1;
+            return current;
+        } else {
             return null;
         }
-        if (size == 1) {
-            return poll(0);
-        }
-        int i = random.nextInt(size);
-        Position pos = get(i);
-        remove(i);
-        return pos;
     }
-
 }

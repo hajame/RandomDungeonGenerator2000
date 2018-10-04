@@ -1,7 +1,7 @@
 package dungeongenerator.domain;
 
+import dungeongenerator.util.NeighborList;
 import dungeongenerator.util.Position;
-import dungeongenerator.util.PositionList;
 import dungeongenerator.util.RoomList;
 
 /**
@@ -95,21 +95,37 @@ public class Dungeon {
         if (map[pos.x][pos.y] == ' ') {
             int surroundingWalls = 0;
             char c = map[pos.x + 1][pos.y];
-            if (c == '+') return false;
-            if (c == '█') surroundingWalls++;
-            
+            if (c == '+') {
+                return false;
+            }
+            if (c == '█') {
+                surroundingWalls++;
+            }
+
             c = map[pos.x - 1][pos.y];
-            if (c == '+') return false;
-            if (c == '█') surroundingWalls++;
-            
+            if (c == '+') {
+                return false;
+            }
+            if (c == '█') {
+                surroundingWalls++;
+            }
+
             c = map[pos.x][pos.y + 1];
-            if (c == '+') return false;
-            if (c == '█') surroundingWalls++;
-            
+            if (c == '+') {
+                return false;
+            }
+            if (c == '█') {
+                surroundingWalls++;
+            }
+
             c = map[pos.x][pos.y - 1];
-            if (c == '+') return false;
-            if (c == '█') surroundingWalls++;
-            
+            if (c == '+') {
+                return false;
+            }
+            if (c == '█') {
+                surroundingWalls++;
+            }
+
             // true if there are 3 or surrounding walls
             if (surroundingWalls >= 3) {
                 return true;
@@ -118,15 +134,11 @@ public class Dungeon {
         return false;
     }
 
-    public PositionList getFreeNeighbors(Position pos) {
-        PositionList neighbors = new PositionList();
+    public NeighborList getFreeNeighbors(Position pos) {
+        NeighborList neighbors = new NeighborList();
         int x = pos.x;
         int y = pos.y;
 
-        Position right = new Position(x + 1, y);
-        if (isFree(right)) {
-            neighbors.add(right);
-        }
         Position left = new Position(x - 1, y);
         if (isFree(left)) {
             neighbors.add(left);
@@ -139,6 +151,11 @@ public class Dungeon {
         if (isFree(down)) {
             neighbors.add(down);
         }
+        Position right = new Position(x + 1, y);
+        if (isFree(right)) {
+            neighbors.add(right);
+        }
+        
         return neighbors;
     }
 

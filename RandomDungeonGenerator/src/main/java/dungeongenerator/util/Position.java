@@ -25,6 +25,29 @@ public class Position {
     public void setNext(Position next) {
         this.next = next;
     }
+    /**
+     * @param pos
+     * @return Direction in relation to given Position
+     */
+    public Direction getDirectionFrom(Position pos) {
+        if (pos.x == this.x) {
+            if (pos.y == this.y + 1) {
+                return Direction.UP;
+            }
+            if (pos.y == this.y - 1) {
+                return Direction.DOWN;
+            }
+        }
+        if (pos.y == this.y) {
+            if (pos.x == this.x + 1) {
+                return Direction.LEFT;
+            }
+            if (pos.x == this.x - 1) {
+                return Direction.RIGHT;
+            }
+        }
+        return null;
+    }
     
     @Override
     public int hashCode() {
