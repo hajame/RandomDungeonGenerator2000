@@ -14,8 +14,8 @@ Certain branches, such as the equals-method of the Position class were not teste
 
 | Report          | Coverage | Missed        |
 |-----------------|----------|---------------|
-| Line   | 	64%     | 414 of 1,162   |
-| Branch | 53%     | 	63 of 136    |
+| Line   | 	88%     | 201 of 1,772   |
+| Branch | 86%     | 	30 of 222    |
 
 ## Empirical testing
 
