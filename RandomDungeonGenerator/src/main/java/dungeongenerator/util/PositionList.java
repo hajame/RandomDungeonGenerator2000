@@ -27,7 +27,10 @@ public class PositionList {
     }
 
     public void remove(int index) {
-        if (size > index && index > -1) {
+        if (size > index && index == 0) {
+            first = first.getNext();
+            size--;
+        } else if (size > index && index > 0) {
             Position previous = null;
             Position current = first;
             for (int i = 1; i < index + 1; i++) {
@@ -39,7 +42,7 @@ public class PositionList {
             } else {
                 first = current.getNext();
             }
-            size -= 1;
+            size--;
         }
     }
 
@@ -59,9 +62,11 @@ public class PositionList {
     }
 
     public Position poll() {
-        Position pos = get(0);
-        if (pos != null) {
-            remove(0);
+        Position pos = null;
+        if (size > 0) {
+            pos = first;
+            first = pos.getNext();
+            size--;
         }
         return pos;
     }

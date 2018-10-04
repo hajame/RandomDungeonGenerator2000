@@ -9,14 +9,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int dungeonHeight = 50;
-        int dungeonWidth = 150;
+        int dungeonHeight = 500;
+        int dungeonWidth = 500;
 
         // max and min values for room edges
-        int roomMin = 5;
-        int roomMax = 10;
+        int roomMin = 25;
+        int roomMax = 50;
         // no. of attempts to place rooms.
-        int roomPlacementAttempts = 50;
+        int roomPlacementAttempts = 500;
         long time = System.currentTimeMillis();
         Generator generator = new Generator(dungeonHeight, dungeonWidth,
                 roomMin, roomMax, roomPlacementAttempts);

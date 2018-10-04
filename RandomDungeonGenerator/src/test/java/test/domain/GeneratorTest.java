@@ -24,11 +24,11 @@ public class GeneratorTest {
     @Before
     public void setUp() {
 
-        int dungeonHeight = 50;
-        int dungeonWidth = 50;
+        int dungeonHeight = 100;
+        int dungeonWidth = 100;
 
         // max and min values for room edges
-        int roomMin = 7;
+        int roomMin = 5;
         int roomMax = 10;
         // no. of attempts to place rooms.
         int roomPlacementAttempts = 100;
@@ -45,6 +45,18 @@ public class GeneratorTest {
         generator.generateRooms();
         Dungeon dungeon = generator.getDungeon();
         assertEquals(dungeon.getMap().length, comp.getMap().length);
+        
+    }
+    
+    @Test
+    public void generateTest() {
+        generator.generateRooms();
+        boolean isFinished = generator.generateMaze();
+        if (generator.findNextFree(2, 2) != null) {
+            assertFalse(isFinished);
+        } else {
+            assertTrue(isFinished);
+        }
         
     }
 }

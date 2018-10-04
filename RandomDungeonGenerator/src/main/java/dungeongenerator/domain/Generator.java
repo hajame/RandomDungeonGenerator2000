@@ -76,7 +76,7 @@ public class Generator {
         dung.fill(start, ' ');
         PositionList waitingList = new PositionList();
         waitingList.add(start);
-        Direction dir = Direction.DOWN;
+        Direction dir = Direction.RIGHT;
         while (waitingList.size() > 0) {
             Position pos = waitingList.poll();
             NeighborList neighbors = dung.getFreeNeighbors(pos);
@@ -102,7 +102,7 @@ public class Generator {
             } else {
                 if (dung.isDeadEnd(pos)) {
                     deadEnds.add(pos);
-                    dir = Direction.DOWN;
+                    dir = Direction.RIGHT;
                 }
             }
         }
