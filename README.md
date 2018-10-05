@@ -10,7 +10,7 @@ This is a project for a Data Structures and Algorithms course at Helsinki Univer
 ## Documentation
 - [Specifications](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md)
 - [Hour report](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/hour_report.md)
-- Week reports: [1](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_1.md) | [2](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_2.md) | [3](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_3.md) | [4](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_4.md)
+- Week reports: [1](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_1.md) | [2](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_2.md) | [3](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_3.md) | [4](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_4.md) | [5](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/week_report_5.md)
 - [Test report](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/test_report.md)
 - [Project realization](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/project_realization.md)
 
