@@ -57,11 +57,11 @@ Initial tests without the removal of dead ends suggests the following average ti
 
 #### After removing recursion
 - 1kx1k 
-        - 50 attempts 32.119s
-        - 500 attempts 19.920s
-        - 1000 attempts 17.185s
-        - 10k attempts 12.486s
-        - 100k attempts 11.587s
+    - 50 attempts 32.119s
+    - 500 attempts 19.920s
+    - 1000 attempts 17.185s
+    - 10k attempts 12.486s
+    - 100k attempts 11.587s
 
 #### Remarks
 
