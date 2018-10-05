@@ -39,3 +39,13 @@
 | 27-09-2018 | 3     | Documentation, Filling missed spaces with maze. Refactoring. Empirical testing. |
 | 28-09-2018 | 2     | Optimizing algorithms, bug fixes, empirical testing, documentation         |
 | __total__  | __9__ |      |
+
+
+| Week 5     | hours | task                                                                          |
+|------------|:-----:|-------------------------------------------------------------------------------|
+| 29-09-2018 | 2     | Pruning.                                                        |
+| 01-10-2018 | 3     | Pruning works!                   |
+| 03-10-2018 | 3     | NeighborList, PositionList to replace stock DSs |
+| 04-10-2018 | 6     | Documentation, Empirical testing, NeighborList and PositionList, Trying to optimize.        |
+| 05-10-2018 | 1     | Documentation         |
+| __total__  | __15__ |      |
