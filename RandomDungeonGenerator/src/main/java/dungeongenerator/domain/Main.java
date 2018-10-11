@@ -45,7 +45,7 @@ public class Main {
         System.out.println("Room side len. \t\t"+roomMin+"-"+roomMax);
         System.out.println("Room placement attempts "+roomPlacementAttempts);
         
-        System.out.println("RoomList, size: "+generator.getDungeon().getRooms().size());
+        System.out.println("RoomList, size: \t"+generator.getDungeon().getRooms().size());
 
         // **Uncomment code below to run tests! Feel free to change parameters**
 
