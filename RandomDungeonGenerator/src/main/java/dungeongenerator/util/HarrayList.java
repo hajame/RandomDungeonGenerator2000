@@ -65,4 +65,16 @@ public class HarrayList<E> {
         }
         elements = list;
     }
+
+    @Override
+    public String toString() {
+        String string = "[";
+        for (int i = 0; i < size; i++) {
+            string += elements[i] + ", ";
+        }
+        string = string.substring(0, string.length()-2);
+        return string + "]";
+    }
+    
+    
 }
