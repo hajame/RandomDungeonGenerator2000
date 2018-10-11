@@ -42,7 +42,7 @@ public class GeneratorTest {
 
     @Test
     public void generateDungeonTest() {
-        generator.generateRooms();
+        generator.generateDungeon();
         Dungeon dungeon = generator.getDungeon();
         assertEquals(dungeon.getMap().length, comp.getMap().length);
         

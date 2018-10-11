@@ -44,11 +44,11 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.2</version>
                 
-                <!--        <configuration>
+                <configuration>
                     <excludes>
-                        <exclude>DungeonGenerator/ui/*</exclude>
+                        <exclude>DungeonGenerator/domain/Main</exclude>
                     </excludes>
-                </configuration>-->
+                </configuration>
                 
                 <executions>
                     <execution>
