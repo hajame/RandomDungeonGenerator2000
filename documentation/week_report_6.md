@@ -30,4 +30,4 @@
 - Connecting Mazes and Rooms (Might never happen, depending on time constraints)
 - Optimizing datastructures for increased speed
 - More JUnit tests that cover individual methods instead of integration testing.
-
+- Addressing issues from excellent feedback from my colleagues
