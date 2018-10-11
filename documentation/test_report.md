@@ -14,8 +14,8 @@ Certain branches, such as the equals-method of the Position class were not teste
 
 | Report          | Coverage | Missed        |
 |-----------------|----------|---------------|
-| Line   | 	68%     | 	555 of 1,763   |
-| Branch | 	61%     | 	89 of 230    |
+| Line   | 	90%     | 	187 of 1,884   |
+| Branch | 	90%     | 	20 of 216    |
 
 ## Empirical testing
 
@@ -43,17 +43,14 @@ Initial tests without the removal of dead ends suggests the following average ti
 
 #### Large tests
 
-- 700x700 - 50 attempts - 10,453s 
-    - crashed 1/3 tests - StackOverflowError due to too many recursions
-- 700x700 - 500 attempts - 5.479s - survived all 3 tests
-- 1kx1k - 50 attempts - crashed during all tests 
-    - StackOverflowError due to too many recursions
-- 1kx1k - 500 attempts - failed all tests - crashed during all tests 
-    - StackOverflowError due to too many recursions
-- 1kx1k - 1000 attempts - failed all tests - crashed during all tests 
-    - StackOverflowError due to too many recursions
-- 1kx1k - 100k attempts - 13,942 - SURVIVED ALL 3 TESTS
-    - NOTE: usually ~100 rooms in the map despite large no. of attempts
+| Map size | Room attempts | Avg time (ms)            | Noted                                                                             | Reason                                        |
+|----------|---------------|--------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------|
+| 700x700  | 50 attempts   | 10,453s                  | crashed 1/3 tests                                                                 | StackOverflowError due to too many recursions |
+| 700x700  | 500 attempts  | 5.479s                   | survived all 3 tests                                                              |                                               |
+| 1kx1k    | 50 attempts   | crashed during all tests |                                                                                   | StackOverflowError due to too many recursions |
+| 1kx1k    | 500 attempts  | failed all tests         | crashed during all tests                                                          | StackOverflowError due to too many recursions |
+| 1kx1k    | 1000 attempts | failed all tests         | crashed during all tests                                                          | StackOverflowError due to too many recursions |
+| 1kx1k    | 100k attempts | 13,942                   | SURVIVED ALL 3 TESTS. Usually ~100 rooms in the map despite large no. of attempts |                                               |
 
 #### After removing recursion
 - 1kx1k 
@@ -72,7 +69,7 @@ This suggests that when the number of rooms is sparse, the generateMaze random f
 That being said, the 1kx1k ASCII map is too huge for a real game. It is, however, a good test for optimizing the random flood fill algorithim.
 
 
-### Test 2: Results 4.10.2018
+### Test 2 (n=10): Results 4.10.2018
 
 #### Changes from Test 1
 - N = 10 
@@ -101,6 +98,36 @@ Changes from ArrayList implementation to LinkedList seemed to slow the program d
 Major optimization and possible switching of the LinkedList to Arrays (NeighborList max size is always 4) or the Stack implementation is in order.
 
 100x100 seems to have trouble finishing with 500 room attempts. It seems the chance is high for the rooms to fill the space completely, resulting in a NullException when randomly choosing door positions, as there is nowhere to place a door.
+
+
+### Test 3 (n=10): Results 10.10.2018
+
+#### Changes from Test 2
+
+- PositionList & NeighborList: LinkedList to ArrayList
+- RoomList was still using stock ArrayList, but got similar results with custom ArrayList
+
+#### Results, test 3
+
+| Map size  | Room attempts | Avg time (ms) | Max   | Min   | Med   |
+|-----------|---------------|---------------|-------|-------|-------|
+| 100x100   | 50            | 19            | 46    | 8     | 11    |
+| 100x100   | 100           | 22            | 78    | 6     | 12    |
+| 500x500   | 50            | 2415          | 2800  | 2131  | 2375  |
+| 500x500   | 500           | 1349          | 1572  | 1171  | 1272  |
+| 700x700   | 50            | 8828          | 9085  | 8594  | 8790  |
+| 700x700   | 500           | 5135          | 5736  | 4624  | 5032  |
+| 700x700   | 1000          | 4208          | 4937  | 3661  | 4097  |
+| 1000x1000 | 1000          | 22735         | 24743 | 21199 | 22255 |
+| 1000x1000 | 10000         | 16004         | 17851 | 13815 | 16112 |
+
+#### Remarks
+
+Changes from LinkedList to a custom ArrayList brought performance up to it's initial levels. 500x500 500 room placements went from 5 to 1,3 seconds on average. 
+
+100x100 still hase the same trouble of finishing with 500 room attempts. The chance is still high for the rooms to fill the space completely, resulting in a NullException when randomly choosing door positions, as there is nowhere to place a door. Although this could be fixed, I would argue that it would not result in a pleasing-looking dungeon as it would be all room no corridor. Even with 100 room attempts the space ends up looking cramped with rooms.
+
+
 
 
 
