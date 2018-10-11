@@ -1,7 +1,5 @@
 package dungeongenerator.util;
 
-import java.util.Arrays;
-
 /**
  * Custom ArrayList named after its creator.
  *
@@ -42,9 +40,10 @@ public class HarrayList<E> {
         checkRange(index);
         E removedElement = (E) elements[index];
         int shiftAmount = size - index - 1;
-        
         // Shifts all elemets to the left
-        System.arraycopy(elements, index + 1, elements, index, shiftAmount);
+        for(int k = index+1; k < size; k++) {
+            elements[k-1] = elements[k];
+        }
         size--;
         elements[size] = null;
         return removedElement;
