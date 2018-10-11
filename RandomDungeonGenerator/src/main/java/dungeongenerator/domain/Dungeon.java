@@ -143,19 +143,18 @@ public class Dungeon {
         if (isFree(left)) {
             neighbors.add(left);
         }
-        Position top = new Position(x, y + 1);
-        if (isFree(top)) {
-            neighbors.add(top);
+        Position right = new Position(x + 1, y);
+        if (isFree(right)) {
+            neighbors.add(right);
         }
         Position down = new Position(x, y - 1);
         if (isFree(down)) {
             neighbors.add(down);
         }
-        Position right = new Position(x + 1, y);
-        if (isFree(right)) {
-            neighbors.add(right);
+        Position top = new Position(x, y + 1);
+        if (isFree(top)) {
+            neighbors.add(top);
         }
-        
         return neighbors;
     }
 

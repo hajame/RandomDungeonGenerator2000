@@ -16,14 +16,14 @@ public class Main {
         // PARAMETERS
         // over 500x500 will take a lot of time
         // also increase roomPlacementAttempts on bigger maps (for speed)
-        int dungeonHeight = 75;
-        int dungeonWidth = 125;
+        int dungeonHeight = 500;
+        int dungeonWidth = 500;
 
         // max and min values for room edges
-        int roomMin = 5;
-        int roomMax = 10;
+        int roomMin = 25;
+        int roomMax = 50;
         // no. of attempts to place rooms.
-        int roomPlacementAttempts = 50;
+        int roomPlacementAttempts = 500;
         
         
         long time = System.currentTimeMillis();

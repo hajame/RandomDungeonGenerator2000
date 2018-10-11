@@ -1,7 +1,6 @@
 package dungeongenerator.util;
 
 import dungeongenerator.domain.Room;
-import java.util.ArrayList;
 
 /**
  * ArrayList-type data structure containing Room objects. Will be replaced with
@@ -11,11 +10,11 @@ import java.util.ArrayList;
  */
 public class RoomList {
 
-    private ArrayList<Room> list;
+    private HarrayList<Room> list;
     private int size;
 
     public RoomList() {
-        this.list = new ArrayList<>();
+        this.list = new HarrayList<>();
         this.size = 0;
     }
 
@@ -33,7 +32,7 @@ public class RoomList {
 
     public Room get(int index) {
         if (size != 0 && index < size) {
-            return list.get(index);
+            return (Room) list.get(index);
         }
         return null;
     }
@@ -44,7 +43,8 @@ public class RoomList {
 
     public void print() {
         System.out.println("RoomList, size: " + size);
-        for (Room room : list) {
+        for (int i = 0; i < size; i++) {
+            Room room = (Room) list.get(i);
             Position left = room.getLeftPosition();
             Position right = room.getRightPosition();
             System.out.println("Lx " + left.x + "\tLy " + left.x + "\tRx " + right.x + "\tRy " + right.y);

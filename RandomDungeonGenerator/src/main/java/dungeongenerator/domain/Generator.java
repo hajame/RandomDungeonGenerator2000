@@ -43,6 +43,7 @@ public class Generator {
         }
         generateDoors();
         deleteDeadEnds();
+        clean();
     }
 
     /**
@@ -83,7 +84,7 @@ public class Generator {
             Position neighbor = null;
             for (int i = 0; i < neighbors.size(); i++) {
                 if (neighbors.get(i).getDirectionFrom(pos) == dir) {
-                    if (random.nextInt(4) > 1) { // increase chance to continue straight
+                    if (random.nextInt(7) > 2) { // increase chance to continue straight
                         neighbor = neighbors.poll(i);
                         break;
                     } else {
@@ -163,6 +164,17 @@ public class Generator {
                 if (dung.isDeadEnd(pos)) {
                     deadEnds.add(pos);
                 }
+            }
+        }
+    }
+
+    public void clean() {
+        for (int y = 1; y < dung.getMap()[0].length; y++) {
+            for (int x = 1; x < dung.getMap().length; x++) {
+                char a = dung.getMap()[x][y];
+                if (a == 'X') {
+                    dung.fill(new Position(x, y), ' ');
+                } 
             }
         }
     }
