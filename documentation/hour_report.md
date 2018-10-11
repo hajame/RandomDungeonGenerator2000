@@ -49,3 +49,10 @@
 | 04-10-2018 | 6     | Documentation, Empirical testing, NeighborList and PositionList, Trying to optimize.        |
 | 05-10-2018 | 1     | Documentation         |
 | __total__  | __15__ |      |
+
+| Week 6     | hours | task                                                                          |
+|------------|:-----:|-------------------------------------------------------------------------------|
+| 08-10-2018 | 3     | HarrayList                |
+| 09-10-2018 | 2     | HarrayList, empirical testing |
+| 11-10-2018 | 4   | Documentation, HarrayList, Parameters.        |
+| __total__  | __9__ |      |
