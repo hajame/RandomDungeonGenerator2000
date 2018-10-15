@@ -46,7 +46,7 @@
                 
                 <configuration>
                     <excludes>
-                        <exclude>DungeonGenerator/domain/Main</exclude>
+                        <exclude>**/*Main.*</exclude>
                     </excludes>
                 </configuration>
                 
