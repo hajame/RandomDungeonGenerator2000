@@ -30,8 +30,6 @@ The application uses four stages to create the randomized dungeon:
     
 ## Time and Space complexity
 
-TODO:
-
 ### 1. Create rooms
     a = number of attempts to create a room
     s = avg. number of squares in a room
