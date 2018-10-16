@@ -34,7 +34,7 @@ public class HarrayList<E> {
      * Removes an element from the list and returns it.
      * 
      * @param index
-     * @return 
+     * @return removed Object
      */
     public E remove(int index) {
         checkRange(index);
