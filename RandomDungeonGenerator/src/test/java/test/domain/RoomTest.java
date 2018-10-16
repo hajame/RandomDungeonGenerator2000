@@ -1,5 +1,7 @@
 package test.domain;
 
+import dungeongenerator.domain.Dungeon;
+import dungeongenerator.domain.Generator;
 import dungeongenerator.util.Position;
 import dungeongenerator.domain.Room;
 import org.junit.Before;
@@ -18,8 +20,8 @@ public class RoomTest {
 
     @Before
     public void setUp() {
-        Position left = new Position(5, 5);
-        Position right = new Position(5, 5);
+        Position left = new Position(4, 4);
+        Position right = new Position(6, 6);
         this.room = new Room(left, right);
         this.comp = new Room(left, right, true);
     }
@@ -38,5 +40,12 @@ public class RoomTest {
     @Test
     public void hasDoorConstructorTest() {
         assertTrue(comp.hasDoor());
+    }
+    
+    @Test
+    public void noConnectingSegmentsTest() {
+        Dungeon dung = new Dungeon(new char[10][10]);
+        dung.placeRoom(room);
+        assertTrue(room.connectingSegments(dung).size() == 0);
     }
 }

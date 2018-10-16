@@ -174,16 +174,8 @@ public class Dungeon {
         return null;
     }
 
-    public void setMap(char[][] map) {
-        this.map = map;
-    }
-
     public RoomList getRooms() {
         return rooms;
-    }
-
-    public void setRooms(RoomList rooms) {
-        this.rooms = rooms;
     }
 
     /**

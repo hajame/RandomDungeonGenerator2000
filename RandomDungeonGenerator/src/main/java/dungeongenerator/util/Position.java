@@ -64,17 +64,11 @@ public class Position {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
+        if (obj instanceof Position) {
+            Position position = (Position) obj;
+            return position.x == this.x && position.y == this.y;
         }
-        final Position other = (Position) obj;
-        if (this.x != other.x) {
-            return false;
-        }
-        if (this.y != other.y) {
-            return false;
-        }
-        return true;
+        return false;
     }
 
 }
