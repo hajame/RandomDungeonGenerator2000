@@ -20,6 +20,9 @@ public class Dungeon {
         initMap();
     }
 
+    /**
+     * Fills the outer walls with 'x' chars.
+     */
     public void initMap() {
         for (int y = 0; y < map[0].length; y++) {
             for (int x = 0; x < map.length; x++) {
@@ -37,6 +40,10 @@ public class Dungeon {
         return map;
     }
 
+    /**
+     * @param pos Position to bee filled
+     * @param a char to fill the Position with
+     */
     public void fill(Position pos, char a) {
         map[pos.x][pos.y] = a;
     }
@@ -91,6 +98,10 @@ public class Dungeon {
         return false;
     }
 
+    /**
+     * @param pos checks if this position is a dead end
+     * @return true if Position is a dead end
+     */
     public boolean isDeadEnd(Position pos) {
         if (map[pos.x][pos.y] == ' ') {
             int surroundingWalls = 0;
@@ -134,6 +145,10 @@ public class Dungeon {
         return false;
     }
 
+    /**
+     * @param pos
+     * @return all such neighbors that are surrounded by three wall squares
+     */
     public NeighborList getFreeNeighbors(Position pos) {
         NeighborList neighbors = new NeighborList();
         int x = pos.x;
@@ -158,6 +173,10 @@ public class Dungeon {
         return neighbors;
     }
 
+    /**
+     * @param pos
+     * @return any neighbor with empty char ' '
+     */
     public Position findOpenNeighbor(Position pos) {
         if (map[pos.x + 1][pos.y] == ' ') {
             return new Position(pos.x + 1, pos.y);

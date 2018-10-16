@@ -3,7 +3,7 @@ package dungeongenerator.util;
 import java.util.Random;
 
 /**
- * Used to store 1-4 neighbors for a position.
+ * Used to store the neighbors of a Position.
  * Can poll random neighbor from the list.
  *
  * @author hajame
@@ -14,7 +14,11 @@ public class NeighborList extends PositionList {
     public NeighborList() {
         this.random = new Random();
     }
-
+    
+    /**
+     * Removes and returns a random Position from the list
+     * @return random Position
+     */
     public Position pollRandom() {
         if (this.size() == 0) {
             return null;

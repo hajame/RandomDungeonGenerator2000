@@ -4,7 +4,6 @@ import dungeongenerator.domain.Dungeon;
 import dungeongenerator.domain.Room;
 import dungeongenerator.util.Position;
 import dungeongenerator.util.PositionList;
-import java.awt.Point;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

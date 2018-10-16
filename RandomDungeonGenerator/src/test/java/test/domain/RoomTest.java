@@ -1,7 +1,6 @@
 package test.domain;
 
 import dungeongenerator.domain.Dungeon;
-import dungeongenerator.domain.Generator;
 import dungeongenerator.util.Position;
 import dungeongenerator.domain.Room;
 import org.junit.Before;

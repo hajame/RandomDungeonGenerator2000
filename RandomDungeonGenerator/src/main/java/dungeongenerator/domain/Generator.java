@@ -35,6 +35,9 @@ public class Generator {
         this.dung = new Dungeon(map);
     }
 
+    /**
+     * Generates a random dungeon from an initialized map.
+     */
     public void generateDungeon() {
         generateRooms();
         boolean mazeGenerated = generateMaze();
@@ -139,6 +142,9 @@ public class Generator {
         return null;
     }
 
+    /**
+     * Generates doors randomly wherever a door can be placed in a room.
+     */
     public void generateDoors() {
         if (dung.getRooms().size() == 0) {
             return;
@@ -152,6 +158,10 @@ public class Generator {
         }
     }
 
+    /**
+     * Fills all such squares of corridor where the square is neighbored by
+     * three walls.
+     */
     public void deleteDeadEnds() {
         while (deadEnds.size() > 0) {
             Position pos = deadEnds.poll();
@@ -168,13 +178,16 @@ public class Generator {
         }
     }
 
+    /**
+     * Fills the rooms with space chars.
+     */
     public void clean() {
         for (int y = 1; y < dung.getMap()[0].length; y++) {
             for (int x = 1; x < dung.getMap().length; x++) {
                 char a = dung.getMap()[x][y];
                 if (a == 'X') {
                     dung.fill(new Position(x, y), ' ');
-                } 
+                }
             }
         }
     }

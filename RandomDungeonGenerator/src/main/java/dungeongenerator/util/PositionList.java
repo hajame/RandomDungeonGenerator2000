@@ -38,6 +38,10 @@ public class PositionList {
         return size;
     }
 
+    /**
+     * Returns and removes the first Position on the list.
+     * @return first Position on the list
+     */
     public Position poll() {
         Position pos = get(0);
         if (pos != null) {
@@ -45,11 +49,17 @@ public class PositionList {
         }
         return pos;
     }
-    
-    public Position poll(int i) {
-        Position pos = get(i);
+
+    /**
+     * Removes the item from the list and returns it
+     *
+     * @param index
+     * @return Position of that index
+     */
+    public Position poll(int index) {
+        Position pos = get(index);
         if (pos != null) {
-            remove(i);
+            remove(index);
         }
         return pos;
     }
