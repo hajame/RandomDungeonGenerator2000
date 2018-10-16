@@ -69,7 +69,6 @@
                     <configLocation>checkstyle.xml</configLocation>
                 </configuration>
             </plugin>
-            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -82,6 +81,20 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin> 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>dungeongenerator.domain.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin> 
             
         </plugins>

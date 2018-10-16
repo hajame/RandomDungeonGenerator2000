@@ -10,19 +10,27 @@ import dungeongenerator.util.HarrayList;
 public class Main {
 
     public static void main(String[] args) {
-
+        int dungeonHeight, dungeonWidth, roomMin, roomMax, roomPlacementAttempts;
         // **PARAMETERS**
         //      over 1000x1000 will take a lot of time
         //      also increase roomPlacementAttempts on bigger maps (for speed)
-        int dungeonHeight = 50;
-        int dungeonWidth = 100;
+        dungeonHeight = 50;
+        dungeonWidth = 100;
 
         // max and min values for room edges
-        int roomMin = 4;
-        int roomMax = 11;
+        roomMin = 4;
+        roomMax = 11;
 
         // no. of attempts to place rooms.
-        int roomPlacementAttempts = 30;
+        roomPlacementAttempts = 30;
+        
+        if(args.length == 5) {
+            dungeonHeight = Integer.parseInt(args[0]);
+            dungeonWidth = Integer.parseInt(args[1]);
+            roomMin = Integer.parseInt(args[2]);
+            roomMax = Integer.parseInt(args[3]);
+            roomPlacementAttempts = Integer.parseInt(args[4]);
+        }
 
         Generator gen = new Generator(dungeonHeight, dungeonWidth,
                 roomMin, roomMax, roomPlacementAttempts);
