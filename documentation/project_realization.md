@@ -2,7 +2,7 @@
 
 The structure of the program follows the steps of the [Project Specifications](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md):
 
-#### Creating the dungeon
+## Logic: Creating the dungeon
 
 The application uses four stages to create the randomized dungeon:
 
@@ -54,10 +54,15 @@ The Flood-Fill algorithm visits all remaining squares once.
 
     Time: O(as) + O(n) + O(m) + O(n) 
     = O(as + 2n + m)    
-    = O(as + m)
+    = O(as + n + m)
 
     Space: O(n) + O(m) + O(n) + O(1)  
     = O(n + m)
+
+## Class diagram
+
+![Class diagram](https://raw.githubusercontent.com/hajame/RandomDungeonGenerator2000/master/documentation/images/class_diagram.png)
+
 ## Sources
 
 - [Bob Nystrom's Dungeon Generator](http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/)
