@@ -127,7 +127,18 @@ Changes from LinkedList to a custom ArrayList brought performance up to it's ini
 
 100x100 still hase the same trouble of finishing with 500 room attempts. The chance is still high for the rooms to fill the space completely, resulting in a NullException when randomly choosing door positions, as there is nowhere to place a door. Although this could be fixed, I would argue that it would not result in a pleasing-looking dungeon as it would be all room no corridor. Even with 100 room attempts the space ends up looking cramped with rooms.
 
+#### Visualisation
 
+Taking the maximum amount of room attempts in each map size. Here is the visualisation of average running time vs. number of map squares
+
+![Visualisation of Test 3](https://raw.githubusercontent.com/hajame/RandomDungeonGenerator2000/master/documentation/images/3_test_results.png)
+
+| Squares (n)  | Room attempts | Avg time (ms) |
+|-----------|---------------|---------------|
+| 100x100   | 100           | 22            |
+| 500x500   | 500           | 1349          |
+| 700x700   | 1000          | 4208          |
+| 1000x1000 | 10000         | 16004         |
 
 
 
