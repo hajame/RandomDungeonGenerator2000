@@ -54,7 +54,7 @@ The Flood-Fill algorithm visits all remaining squares once.
 
     Time: O(as) + O(n) + O(m) + O(n) 
     = O(as + 2n + m)    
-    = O(as + m)
+    = O(as + n + m)
 
     Space: O(n) + O(m) + O(n) + O(1)  
     = O(n + m)
