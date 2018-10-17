@@ -10,6 +10,7 @@ This is a project for a Data Structures and Algorithms course at Helsinki Univer
 - [Bob Nystrom](http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/) for the original idea and tutorial.
 
 ## Documentation
+- [User guide](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/user_guide.md)
 - [Specifications](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md)
 - [Javadoc](https://htmlpreview.github.io/?https://github.com/hajame/RandomDungeonGenerator2000/blob/master/javadoc/index.html)
 - [Test report](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/test_report.md)
