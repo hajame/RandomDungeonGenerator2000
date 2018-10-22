@@ -129,7 +129,7 @@ Changes from LinkedList to a custom ArrayList brought performance up to it's ini
 
 #### Visualisation
 
-Taking the maximum amount of room attempts in each map size. Here is the visualisation of average running time vs. number of map squares
+Here is the visualisation of average running time vs. number of map squares (n) and room squares (m).
 
 ![Visualisation of Test 3](https://raw.githubusercontent.com/hajame/RandomDungeonGenerator2000/master/documentation/images/3_test_results.png)
 
@@ -140,7 +140,9 @@ Taking the maximum amount of room attempts in each map size. Here is the visuali
 | 980k   | 1000          | 4208          |
 | 2M | 10000         | 16004         |
 
-
-
-
+It can be seen that when n + m doubles, the average time quadruples. This suggests a time estimation of
+    
+    O(2(n+m)) = O(n+m)
+    
+This is in line with the initial time estimation given in the [Project specifications document](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md).
 
