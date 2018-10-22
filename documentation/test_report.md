@@ -133,12 +133,12 @@ Taking the maximum amount of room attempts in each map size. Here is the visuali
 
 ![Visualisation of Test 3](https://raw.githubusercontent.com/hajame/RandomDungeonGenerator2000/master/documentation/images/3_test_results.png)
 
-| Squares (n)  | Room attempts | Avg time (ms) |
+| n + m  | Room attempts | Avg time (ms) |
 |-----------|---------------|---------------|
-| 100x100   | 100           | 22            |
-| 500x500   | 500           | 1349          |
-| 700x700   | 1000          | 4208          |
-| 1000x1000 | 10000         | 16004         |
+| 20k   | 100           | 22            |
+| 500k   | 500           | 1349          |
+| 980k   | 1000          | 4208          |
+| 2M | 10000         | 16004         |
 
 
 
