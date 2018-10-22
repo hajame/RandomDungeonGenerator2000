@@ -23,9 +23,9 @@ public class Main {
 
         // no. of attempts to place rooms.
         roomPlacementAttempts = 30;
-        
+
         // terminal arguments
-        if(args.length == 5) {
+        if (args.length == 5) {
             dungeonHeight = Integer.parseInt(args[0]);
             dungeonWidth = Integer.parseInt(args[1]);
             roomMin = Integer.parseInt(args[2]);
@@ -38,10 +38,9 @@ public class Main {
 
         create(gen);
 
-            // * Uncomment line below to print out each phase with its creation time *
+        // * Uncomment line below to print out each phase with its creation time *
         // printAndTimePhases(gen);
-        
-            // * Uncomment line below to see the average time of n amount of tests *
+        // * Uncomment line below to see the average time of n amount of tests *
         // test(gen, 10);
     }
 
