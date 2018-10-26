@@ -56,3 +56,12 @@
 | 09-10-2018 | 2     | HarrayList, empirical testing |
 | 11-10-2018 | 4   | Documentation, HarrayList, Parameters.        |
 | __total__  | __9__ |      |
+
+| Week 7-8     | hours | task                                                                          |
+|------------|:-----:|-------------------------------------------------------------------------------|
+| 15-10-2018 | 1     | Testing                |
+| 16-10-2018 | 3     | Testing |
+| 17-10-2018 | 3   | Documentation, visualization, user's guide        |
+| 23-10-2018 | 2  | Visualization |
+| 26-10-2018 | 2  | Test report update, hours, final week report |
+| __total__  | __11__ |      |
