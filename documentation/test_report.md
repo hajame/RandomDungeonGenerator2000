@@ -14,8 +14,8 @@ Certain branches, such as the equals-method of the Position class were not teste
 
 | Report          | Coverage | Missed        |
 |-----------------|----------|---------------|
-| Line   | 	97%     | 	39 of 1,765   |
-| Branch | 	91%     | 	19 of 216    |
+| Line   | 	92%     | 	91 of 1,765   |
+| Branch | 	88%     | 	18 of 162    |
 
 ## Empirical testing
 
@@ -140,9 +140,7 @@ Here is the visualisation of average running time vs. number of map squares (n) 
 | 980k   | 1000          | 4208          |
 | 2M | 10000         | 16004         |
 
-It can be seen that when n + m doubles, the average time quadruples. This suggests a time estimation of
-    
-    O(2(n+m)) = O(n+m)
-    
-This is in line with the initial time estimation given in the [Project specifications document](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md).
+It can be seen that when n + m doubles, the average time quadruples. This suggests a time complexity of `O((n+m)^2)`, which is not line with the initial time estimation of `O(n+m)`, given in the [Project specifications document](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md).
+
+As phase 2: 'fill remaining space with a maze' is the most time-demanding phase, more optimization there could lead to a faster, more efficient algorithm.
 
