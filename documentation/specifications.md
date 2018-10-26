@@ -40,7 +40,7 @@ The user defines how many room-adding attempts are made. The attempt fails if th
     Space: O(n)
 
 
-### 2. Fill remaining space with corridos
+### 2. Fill remaining space with a maze
 
 Time O(n) and Space O(n): The Flood-Fill algorithm visits all remaining squares once. 
 
