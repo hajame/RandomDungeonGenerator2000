@@ -6,7 +6,10 @@
 - More JUnit tests that cover individual methods instead of integration testing
 - Addressing issues from excellent feedback from my colleagues
 - Documentation
-- Terminal arguments and creating jar file
+  - Test result visualization and description
+  - UML class diagram
+  - User's guide
+- Terminal arguments and creating a jar file
 
 ## Class updates
 
@@ -15,7 +18,8 @@
 
 ## Lessons learned
 - Writing JUnit tests early on pays off.
+- Estimating time complexities turns out to be more difficult than I expected.
 
-## Not enough time for these problems
-- Connecting Mazes and Rooms (Might never happen, depending on time constraints)
+## Not enough time to address these problems
+- Ensuring all Mazes and Rooms are connected
 - UTF-8 text not displaying on all systems
