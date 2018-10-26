@@ -4,11 +4,7 @@
 
 The program was written borrowing test-driven development methods. The usual workflow was to write a class and test it right away, with the exceptions of classes with complex methods that evolve iteratively.
 
-This will involve all classes except the Main class. 
-
-### Exceptions
-
-Certain branches, such as the equals-method of the Position class were not tested. These are really general and well tried basic object comparisons.
+All classes, except the Main class, were tested. 
 
 ### jacoco test report 
 
@@ -104,8 +100,9 @@ Major optimization and possible switching of the LinkedList to Arrays (NeighborL
 
 #### Changes from Test 2
 
-- PositionList & NeighborList: LinkedList to ArrayList
-- RoomList was still using stock ArrayList, but got similar results with custom ArrayList
+- PositionList & NeighborList
+    - LinkedList was changed to ArrayList
+- During this test, RoomList was still using stock ArrayList, but similar results were had after changing to custom ArrayList
 
 #### Results, test 3
 
