@@ -139,7 +139,8 @@ Here is the visualisation of average running time vs. number of map squares (n) 
 
 It can be seen that when n + m doubles, the average time quadruples. This suggests a time complexity of `O((n+m)^2)`, which is not line with the initial time estimation of `O(n+m)`, given in the [Project specifications document](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/specifications.md).
 
-#### Suggestions for optimization
+Unless there are severe flaws in the code, it is unlikely that an `O((n+m))` time complexity can be achieved using the current algorithm structure. This suggests that the initial estimation of `O((n+m))` was wrong.
 
-As __phase 2: 'fill remaining space with a maze'__ is the most time-demanding phase, more optimization there could lead to a faster, more efficient algorithm.
+#### Potential for optimization
 
+As __phase 2: 'fill remaining space with a maze'__ is the most time-demanding phase, more optimization there could lead to a more efficient algorithm. 
