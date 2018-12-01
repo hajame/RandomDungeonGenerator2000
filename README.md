@@ -5,9 +5,12 @@ A random dungeon generator that creates random ASCII mazes with rooms.
 This is a project for a Data Structures and Algorithms course at Helsinki University. Therefore it also includes self-made data stuctures.
 
 - [Release v1.0 jar](https://github.com/hajame/RandomDungeonGenerator2000/releases/tag/v1.0)
+- [Quick Running Instructions](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/user_guide.md)
 
 ## Acknowledgements
 - [Bob Nystrom](http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/) for the original idea and tutorial.
+
+## [User guide](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/user_guide.md)
 
 ## Documentation
 - [User guide](https://github.com/hajame/RandomDungeonGenerator2000/blob/master/documentation/user_guide.md)
